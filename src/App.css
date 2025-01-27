@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.aligned-menu .ant-menu-item span {
+  display: inline-block;
+  text-align: left;
+  flex-grow: 1;
+}
+
+ 
+
+.login-form{
+  width: 500px;
+  
+  margin: 0 auto;
+}
+.dashboard-card{
+  border: 1px solid #e7eaf0;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 5px; /* Smooth transition */
+  padding: 5px;
+   
+
+}
+.card-one {
+  background: linear-gradient(45deg, #24ed99, #2d94bc);}
+.card-two {
+  background: linear-gradient(45deg, #ff7eb3, #ff758c); }
+
+.card-three {
+  background: linear-gradient(45deg, #2193b0, #6dd5ed); /* Ocean blue to sky blue */
+}
+
+.card-four {
+  background: linear-gradient(45deg, #edc84d, #fa8d6f);
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-5px);  
+}
+
+.dashboard-card h3{
+  font-size: 15px;
+  font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+  font-weight: 300;
+  text-align: left;
+  align-items: baseline;
+  color: #ffffff;
+}
+.Page-heading{
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 100;
+  color: #282c34;
+  text-align: left;
+  
+}
+
+.ant-row{
+  margin-bottom: 15px;
+}
+.activity-log {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.activity-log li {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.activity-log li span {
+  font-weight: bold;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
