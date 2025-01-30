@@ -20,6 +20,14 @@ import ContractManagement from './Pages/Management/ContractManagement';
 import OrderManagement from './Pages/Management/OrderManagement';
  import SubscriptionManage from './Pages/Management/SubscriptionManage';
 import TenantManagement from './Pages/Management/TenantManagement';
+import RoleManagement from './Pages/Management/RoleManagement';
+import EnqueryManagement from './Pages/Management/EnqueryManagement';
+import ProductsPrices from './Pages/Products/ProductsPrices';
+import ProductConfigurations from './Pages/Products/ProductConfigurations';
+import Loginstats from './Pages/Management/Loginstats';
+import AbondonedCard from './Pages/Management/AbondonedCard';
+import MyProfile from './Pages/MyProfile';
+import ForgetPassword from './Pages/ForgetPassword';
 
 
 function App() {
@@ -29,7 +37,7 @@ function App() {
 
 <Router>
       <div className="App">
-        <PageSider> {/* Sidebar is outside of the Routes */}
+        <PageSider> 
         <Routes>
           {/* Define routes here */}
           <Route path="*" element={<Login />} />
@@ -48,6 +56,14 @@ function App() {
           <Route path="/ordermanagement" element={<OrderManagement/>} />
           <Route path="/tenentmanage" element={<TenantManagement/>} />
           <Route path="/subscriptionmanage" element={<SubscriptionManage/>} />
+          <Route path="/rolemanagement" element={<RoleManagement/>} />
+          <Route path="/enquerymanagement" element={<EnqueryManagement/>} />
+          <Route path="/productprices" element={<ProductsPrices/>} />
+          <Route path="/productconfig" element={<ProductConfigurations/>} />
+          <Route path="/loginstats" element={<Loginstats/>} />
+          <Route path="/abandonedCard" element={<AbondonedCard/>} />
+          <Route path="/myProfile" element={<MyProfile/>} />
+          <Route path="/forgetPassword" element={<ForgetPassword/>} />
 
 
         </Routes>

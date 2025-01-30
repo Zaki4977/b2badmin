@@ -1,78 +1,138 @@
 import React from 'react'
-import {  Card, Row,Col,Space, Table, Tag, Button } from 'antd'
+import {  Card, Row,Col,Space, Table, Tag, Button, Tooltip } from 'antd'
 import '../App.css';
 import Barchart from './Barchart';
- 
+import { useNavigate } from "react-router-dom";
+import { RightOutlined, RightSquareOutlined } from '@ant-design/icons';
 
 const Dashboard = () => {
+
+
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
  
   const columns = [
     {
-      title: 'Order ID	',
-      dataIndex: 'name',
-      key: 'name',
-      render: (text) => <a>{text}</a>,
+      title: "Order Id",
+      dataIndex: "order_id",
     },
     {
-      title: 'Customer',
-      dataIndex: 'age',
-      key: 'age',
+      title: "Sub Client",
+      dataIndex: "contractname",
     },
     {
-      title: 'Status',
-      dataIndex: 'address',
-      key: 'address',
+        title: "Client",
+        dataIndex: "client",
+      },
+    {
+      title: "ERP Order Id",
+      dataIndex: "erp_order_id",
     },
     {
-      title: 'Total',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: (_, { tags }) => (
-        <>
-          {tags.map((tag) => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
+        title: "Sub Total",
+        dataIndex: "sub_total",
+      },
+      {
+        title: "Ordered On",
+        dataIndex: "order_on",
+      },
+      {
+        title: "Status",
+        dataIndex: "status",
+      },
+      // {
+      //   title: "View",
+      //   dataIndex: "erp_order_id",
+      //   render: (_, record) => (
+      //         <div style={{ display: "flex", gap: "8px" }}>
+      //           <a onClick={() => showModal(record)} style={{ color: "#1890ff" }}>
+      //             <EyeOutlined style={{ fontSize: "18px" }} /> {/* Edit icon */}
+      //           </a>
+                
+      //         </div>
+      //       ),
+      // },
+    // {
+    //   title: "Edit",
+    //   dataIndex: "edit",
+    //   render: (_, record) => (
+    //     <div style={{ display: "flex", gap: "8px" }}>
+    //       <a onClick={() => handleEdit(record)} style={{ color: "#1890ff" }}>
+    //         <EditOutlined style={{ fontSize: "18px" }} /> {/* Edit icon */}
+    //       </a>
+          
+    //     </div>
+    //   ),
+       
+    // },
+    
+    // {
+    //   title: "Action",
+    //   dataIndex: "action",
+
+    //   render: (value, record) => (
+    //     <Switch
+    //       checked={record.status === "active"} // Example toggle condition
+    //       onChange={(checked) => handleToggle(record, checked)} // Handle toggle logic
+    //     />
+    //   ),
+    // },
      
   ];
   const data = [
     {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
+      key: "1",
+      contractname: "	Market Chemist-NW8",
+      client: "Webdezign Com",
+      status: "Active",
+      erp_order_id: 10,
+      order_id: "ord_70",
+      status:'Dispatch',
+      sub_total:100,
+      order_on:"01/01/2024"
     },
     {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
+      key: "2",
+      contractname:"alis chemist - RIGPHA" ,
+      client: " Carter Chemist (2005) Ltd	",
+      status: "Active",
+      erp_order_id: "02",
+      sub_total:150,
+      order_on:"02/01/2024",
+      status:'Delivered',
+
+      order_id: "ord_89",
     },
     {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sydney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
+      key: "3",
+      contractname: "Wanstead Pharmacy - WANSTE",
+      client: " Anand Bhatt Customers",
+      status: "In Active",
+      erp_order_id: "02211",
+sub_total:300,
+      order_on:"10/01/2024",
+      status:'In transis',
+
+      order_id: "ord_70",
+    },
+    {
+      key: "4",
+      contractname: "Jade Pharmacy - HERBUR",
+      client: "Forte Direct Ltd	",
+      status: "In Active",
+      erp_order_id: "02211",
+      sub_total:500,
+      status:'Not Dispathed',
+
+      order_on:"20/01/2024",
+
+      order_id: "ord_89",
     },
   ];
 
+  const handleviewMoreOrder =()=>{
 
-  const handleInventry =()=>{
-    ("/inventry")
+navigate("/ordermanagement");
   }
   
   return (
@@ -136,6 +196,11 @@ const Dashboard = () => {
           <Card>
           <h2 style={{textAlign:'left'}}>Order Overview</h2>
           <Table columns={columns} dataSource={data}  pagination={false}/>
+          <div style={{display:'flex',justifyContent:'end',marginTop:'20px'}}>
+            <Tooltip title={"View More"}>
+          <a type='primary' onClick={handleviewMoreOrder}> <RightOutlined style={{fontSize:'28px'}}/></a>
+          </Tooltip>
+          </div>
           </Card>
         </Col>
         </Row>

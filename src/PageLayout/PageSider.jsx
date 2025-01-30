@@ -46,14 +46,14 @@ const PageSider = ({ children }) => {
     {
       key: "1",
       label: (
-        <a rel='noopener noreferrer' href='/profile'>
+        <a rel='noopener noreferrer' href='/myProfile'>
           My Profile
         </a>
       ),
       icon: <SmileOutlined/>,
     },
     {
-      key: "1",
+      key: "2",
       label: (
         <a rel='noopener noreferrer' href='/login'>
           Logout
@@ -70,8 +70,8 @@ const PageSider = ({ children }) => {
 
   return (
     <Layout hasSider>
-      <Sider style={siderStyle} width={250} collapsedWidth={80} collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-        <img src='/admin-logo.png' style={{ width: "250px", height: "120px" }} />
+      <Sider style={siderStyle} width={250} collapsedWidth={100} collapsible collapsed={collapsed} onCollapse={setCollapsed}>
+        <img src='/admin-logo.png' style={{ width: "200px", height: "70px",marginTop:'10px' }} />
         <div className='demo-logo-vertical' />
         <PageMenu/>
       </Sider>
@@ -101,7 +101,8 @@ const PageSider = ({ children }) => {
               <Avatar icon={<NotificationOutlined />} />
             </Badge>
             <span style={{ paddingLeft: "20px" }}>
-              <Dropdown menu={{ items: dropdownItems }} trigger={["hover"]}>
+              <Dropdown menu={{ items: dropdownItems }}  trigger={["hover"]}   overlayStyle={{ width: 200 }} // Set the dropdown width
+              >
                 <Avatar icon={<UserOutlined />} />
               </Dropdown>
             </span>

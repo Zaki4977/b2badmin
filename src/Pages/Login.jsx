@@ -13,6 +13,7 @@ const Login = () => {
   return (
     <div className='login-form-container'>
     <div className='login-form'>
+      <div className='login-heading'>Login</div>
    <Form
       name="login"
       initialValues={{
@@ -20,6 +21,7 @@ const Login = () => {
       }}
       style={{
         maxWidth: 360,
+        margin:'0 auto'
       }}
       onFinish={onFinish}
     >
@@ -28,11 +30,11 @@ const Login = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your Username!',
+            message: 'Please input your Email!',
           },
         ]}
       >
-        <Input prefix={<UserOutlined />} placeholder="Username" />
+        <Input  type='email' prefix={<UserOutlined />} placeholder="Email"   variant='borderless'/>
       </Form.Item>
       <Form.Item
         name="password"
@@ -43,14 +45,14 @@ const Login = () => {
           },
         ]}
       >
-        <Input prefix={<LockOutlined />} type="password" placeholder="Password" />
+        <Input prefix={<LockOutlined />} type="password" placeholder="Password"  />
       </Form.Item>
       <Form.Item>
         <Flex justify="space-between" align="center">
           <Form.Item name="remember" valuePropName="checked" noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-          <a href="">Forgot password</a>
+          <a href="/forgetPassword">Forgot password</a>
         </Flex>
       </Form.Item>
 

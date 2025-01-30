@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Table, Modal, Switch, Form, Input, message } from "antd";
 import { EditOutlined, DeleteOutlined ,PlusOutlined,EyeOutlined} from "@ant-design/icons";
+import { Select } from "antd";
 
 const SubscriptionManage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,7 +31,7 @@ const SubscriptionManage = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: "Client Name",
       dataIndex: "name",
     },
     {
@@ -73,32 +74,36 @@ const SubscriptionManage = () => {
     {
       key: "1",
       name: "Webdezign Com	",
-      modules: "Drivegrp",
+      modules: "Contract,Order,Offer",
       status: "Active",
       action: 70,
     },
     {
       key: "2",
       name:"Carter Chemist (2005) Ltd	" ,
-      modules: "RHGROUP",
+      modules: "Enquery,Order",
       status: "Active",
       action: 89,
     },
     {
       key: "3",
       name: "Anand Bhatt Customers	",
-      modules: "SIGDRIVE",
-      status: "In Active",
+      modules: "Management ,Login Summary",
+      status: "Expire",
       action: 70,
     },
     {	
       key: "4",
       name: "Pathik Vyas Customers",
-      modules: "SECROBOT",
-      status: "In Active",
+      modules: "Login Summary,Offer",
+      status: "Expire",
       action: 89,
     },
   ];
+
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
   const handleToggle = (record, checked) => {
     console.log("Toggle changed:", { id: record.key, status: checked });
     // Example: Send an API request to update the status
@@ -179,15 +184,63 @@ const SubscriptionManage = () => {
               name="modules"
               rules={[{ required: true, message: "Please enter the modules!" }]}
             >
-              <Input placeholder="Enter modules" />
-            </Form.Item>
+<Select
+      defaultValue="Client"
+      mode="multiple"
+      showSearch
+      style={{
+        width: "100%",
+      }}
+      onChange={handleChange}
+      options={[
+        {
+          value: 'client',
+          label: 'Client',
+        },
+        {
+          value: 'subclient',
+          label: 'Sub Client',
+        },
+        {
+          value: 'offer',
+          label: 'Offer',
+        },
+        {
+          value: 'enquery',
+          label: 'Enquery',
+        },
+        {
+          value: 'loginsummary',
+          label: 'Login Summary',
+        },
+         
+      ]}
+    />            </Form.Item>
             <Form.Item
               label="Status"
               name="status"
-              rules={[{ required: true, message: "Please enter the status!" }]}
+              rules={[{ required: true, message: "Please select the status!" }]}
             >
-              <Input placeholder="Enter status" />
-            </Form.Item>
+<Select
+      defaultValue="Active"
+       showSearch
+      style={{
+        width: "100%",
+      }}
+      onChange={handleChange}
+      options={[
+        {
+          value: 'active',
+          label: 'Active',
+        },
+        {
+          value: 'inactive',
+          label: 'InActive',
+        },
+        
+         
+      ]}
+    />              </Form.Item>
           </Form>
         )}
       </Modal>

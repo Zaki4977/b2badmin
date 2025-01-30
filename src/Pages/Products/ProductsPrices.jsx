@@ -3,7 +3,7 @@ import { Space, Table, Tag ,Switch,Form,Button,Modal,Select,Input,message} from 
 import { EditOutlined, DeleteOutlined ,PlusOutlined,EyeOutlined} from "@ant-design/icons";
 
 
-const ProductCategory = () => {
+const ProductPrices = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm(); 
@@ -47,6 +47,11 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
       key: 'parent_category',
     },
     {
+      title: 'Product Price',
+      dataIndex: 'prod_price',
+      key: 'prod_price',
+    },
+    {
       title: 'Status',
       dataIndex: 'status',
       key: 'status',
@@ -80,6 +85,7 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
       prod_grp: '200OT',
       company: 'Sigma Pharmaceuticals Plc',
       parent_category:"PI",
+      prod_price:'100$'
     },
     {
       key: '2',
@@ -88,6 +94,8 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
       prod_grp: '12ET',
       company: 'Sigma Pharmaceuticals Plc',
       parent_category:"OTC H&B",
+      prod_price:'50$'
+
     },
     {
       key: '3',
@@ -96,6 +104,8 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
       prod_grp: '200OT',
       company: 'Sigma Pharmaceuticals Plc',
       parent_category:"OTC H&B",
+      prod_price:'150$'
+
     },
   ];
 
@@ -111,7 +121,8 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
       prod_desc: record.prod_desc,
       prod_grp: record.prod_grp || "", // Assuming email is a part of the data
       company: record.company || "",
-      parent_category:record.parent_category
+      parent_category:record.parent_category,
+      prod_price:record.prod_price
       
      });
     setIsModalOpen(true); // Open the modal
@@ -156,7 +167,7 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
   return (
     <div> 
       <div>
-      <h2 style={{ textAlign: "left" }}>PRODUCT  CATEGORY</h2>
+      <h2 style={{ textAlign: "left" }}>PRODUCT  PRICES</h2>
 
       </div>
       <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '10px' }}>
@@ -169,7 +180,7 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
       </div>
       <div>
       <Modal
-        title={formMode === "add" ? "Add Product Category" : formMode === "edit" ? "Edit Product Category" : "View Product Category"}
+        title={formMode === "add" ? "Add Product " :  "Edit Product "  }
         open={isModalOpen}
         onOk={formMode !== "view" ? form.submit : handleOk}
         onCancel={handleCancel}
@@ -218,6 +229,14 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
                                           <Input placeholder="Enter a Parent Company" />
 
              </Form.Item>
+             <Form.Item
+              label="Product Price"
+              name="prod_price"
+              rules={[{ required: true, message: "Please add the Product Price!" }]}
+            >
+                                          <Input placeholder="Enter a Product Price" />
+
+             </Form.Item>
           </Form>
         )}
       </Modal>
@@ -226,4 +245,4 @@ const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
   )
 }
 
-export default ProductCategory
+export default ProductPrices

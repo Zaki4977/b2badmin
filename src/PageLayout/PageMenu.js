@@ -54,6 +54,26 @@ const items = [
         icon: <DashboardOutlined />,
         label: (<a href="/offermanagement" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Offer</a>),
       },
+      {
+        key: 'rolemanagement',
+        icon: <DashboardOutlined />,
+        label: (<a href="/rolemanagement" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Role</a>),
+      },
+      {
+        key: 'enquerymanagement',
+        icon: <DashboardOutlined />,
+        label: (<a href="/enquerymanagement" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Enquery</a>),
+      },
+      {
+        key: 'abandonedCard',
+        icon: <DashboardOutlined />,
+        label: (<a href="/abandonedCard" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Abandoned Card</a>),
+      },
+      {
+        key: 'loginstats',
+        icon: <DashboardOutlined />,
+        label: (<a href="/loginstats" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Login Summary</a>),
+      },
     ],
   },
   {
@@ -71,6 +91,16 @@ const items = [
         icon: <ProductOutlined />,
         label: (<a href="/products" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Products</a>),
       },
+      {
+        key: 'productprice',
+        icon: <ProductOutlined />,
+        label: (<a href="/productprices" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Product Prices</a>),
+      },
+      //  {
+      //   key: 'productconfig',
+      //   icon: <ProductOutlined />,
+      //   label: (<a href="/productconfig" style={{ fontFamily: 'Roboto Flex, serif', fontWeight: '600' }}>Product Configuration</a>),
+      // },
     ],
   },
 ];

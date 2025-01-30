@@ -164,13 +164,13 @@ const ClientManagement = () => {
             <Input placeholder="Enter client owner" />
           </Form.Item>
 
-          <Form.Item
+          {/* <Form.Item
             label="Status"
             name="role"
             rules={[{ required: true, message: "Please select a client status!" }]}
           >
             <Input placeholder="Enter client status (Active/Inactive)" />
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item>
             <Button type="primary" htmlType="submit">

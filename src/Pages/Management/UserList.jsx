@@ -1,24 +1,35 @@
 import React, { useState } from "react";
-import { Button, Table, Modal, Switch, Form, Input, message } from "antd";
+import { Button, Table, Modal, Switch, Form, Input, message,Select } from "antd";
 import { EditOutlined, DeleteOutlined ,PlusOutlined} from "@ant-design/icons";
 
 const UserList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form] = Form.useForm(); // Form instance for managing form state
+  const [formMode, setFormMode] = useState("add"); // "add", "edit", or "view"
+  const [currentRecord, setCurrentRecord] = useState(null); // Record to edit or view
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
+  const showModal = (mode, record = null) => {
+    setFormMode(mode);
+    setCurrentRecord(record);
+    if (mode === "edit" && record) {
+      form.setFieldsValue(record); // Pre-fill form with record's data
+    } else if (mode === "add") {
+      form.resetFields(); // Reset form for add mode
+    }
+    setIsModalOpen(true);  };
   const handleOk = () => {
     setIsModalOpen(false);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
 
   const columns = [
     {
-      title: "Username",
+      title: "Name",
       dataIndex: "name",
     },
     {
@@ -114,10 +125,14 @@ const UserList = () => {
   };
 
   const handleEdit = (record) => {
-    Modal.info({
-      title: "Edit Record",
-      content: `Edit details for ${record.name}`,
-    });
+    form.setFieldsValue({
+      name: record.name,
+      email: record.email || "", // Assuming email is a part of the data
+      number: record.number || "",
+       role:record.role,
+       register_on:record.register_on
+     });
+    setIsModalOpen(true);
   };
 
   const handleDelete = (record) => {
@@ -152,9 +167,13 @@ const UserList = () => {
         <Table columns={columns} dataSource={data} onChange={onChange} />
       </div>
       <div>
-        <Modal title='Create User' open={isModalOpen} onOk={handleOk} onCancel={handleCancel} footer={false}>
+        <Modal title={formMode === "add" ? "Add User" :   "Edit User"  }  open={isModalOpen}
+        onOk={formMode !== "view" ? form.submit : handleOk}
+        onCancel={handleCancel}
+        footer={false}
+         >
           <Form form={form} layout='vertical' name='createUserForm' onFinish={onFinish}>
-            <Form.Item label='UserName' name='name' rules={[{ required: true, message: "Please enter the user name!" }]}>
+            <Form.Item label='Name' name='name' rules={[{ required: true, message: "Please enter the user name!" }]}>
               <Input placeholder='Enter name' />
             </Form.Item>
             <Form.Item
@@ -167,12 +186,33 @@ const UserList = () => {
             >
               <Input placeholder='Enter email' />
             </Form.Item>
-            <Form.Item label='Contact Number' name='phone' rules={[{ required: true, message: "Please enter the role!" }]}>
+            <Form.Item label='Contact Number' name='number' rules={[{ required: true, message: "Please enter the role!" }]}>
               <Input placeholder='Enter Contact Number' />
             </Form.Item>
             <Form.Item label='Role' name='role' rules={[{ required: true, message: "Please enter the role!" }]}>
-              <Input placeholder='Enter role' />
-            </Form.Item>
+            <Select
+      defaultValue="User"
+      style={{
+        width: "100%",
+      }}
+      onChange={handleChange}
+      options={[
+        {
+          value: 'Manager',
+          label: 'Manager',
+        },
+        {
+          value: 'client',
+          label: 'Client',
+        },
+        {
+          value: 'user',
+          label: 'User',
+        },
+         
+      ]}
+    />
+             </Form.Item>
             <Form.Item label='Registred On' name='register_on' rules={[{ required: true, message: "Please enter the role!" }]}>
               <Input placeholder='Enter role' />
             </Form.Item>

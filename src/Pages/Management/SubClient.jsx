@@ -174,13 +174,13 @@ const SubClient = () => {
           >
             <Input placeholder="Enter manager's name" />
           </Form.Item>
-          <Form.Item
+          {/* <Form.Item
             label="Status"
             name="status"
             rules={[{ required: true, message: "Please select the status!" }]}
           >
             <Input placeholder="Enter status" />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item>
             <Button type="primary" htmlType="submit">
               {isEditMode ? "Update" : "Create"}

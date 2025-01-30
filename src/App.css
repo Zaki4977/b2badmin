@@ -36,9 +36,18 @@
  
 
 .login-form{
+  background-color: #ffffff;
   width: 500px;
-  
+  border: 1px solid #e7eaf0;
+  /* border-radius: 10px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+  height: 400px;
+}
+.login-heading{
+  margin: 50px;
+  font-weight: 500;
+  font-size: 30px;
 }
 .dashboard-card{
   border: 1px solid #e7eaf0;
@@ -104,6 +113,8 @@
 .activity-log li span {
   font-weight: bold;
 }
+ 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -111,4 +122,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.ant-input-affix-wrapper {
+  border: none !important;
+  border-bottom: 1px solid #020d19 !important;
+  border-radius: 0 !important;
+  padding: 8px 0;
+  background-color: transparent;
+  box-shadow: none !important;
+  transition: border-color 0.3s ease-in-out;
+  height: 50px;
+}
+
+/* Focus Effect */
+.ant-input-affix-wrapper:focus,
+.ant-input-affix-wrapper-focused {
+  border-bottom: 2px solid #011122 !important;
+  box-shadow: none !important;
+}
+
+/* Placeholder Style */
+.ant-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+/* Icon Styling */
+.ant-input-prefix {
+  color: #0072ff;
+  font-size: 16px;
+}
+
+/* Hide default password eye icon styling */
+.anticon-eye {
+  color: #0072ff;
 }

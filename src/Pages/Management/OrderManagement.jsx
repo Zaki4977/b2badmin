@@ -22,7 +22,7 @@ const OrderManagement = () => {
   const columns = [
     {
       title: "Order Id",
-      dataIndex: "action",
+      dataIndex: "order_id",
     },
     {
       title: "Sub Client",
@@ -41,8 +41,12 @@ const OrderManagement = () => {
         dataIndex: "sub_total",
       },
       {
-        title: "Order On",
+        title: "Ordered On",
         dataIndex: "order_on",
+      },
+      {
+        title: "Status",
+        dataIndex: "status",
       },
       {
         title: "View",
@@ -90,7 +94,8 @@ const OrderManagement = () => {
       client: "Webdezign Com",
       status: "Active",
       erp_order_id: 10,
-      action: 70,
+      order_id: "ord_70",
+      status:'Dispatch',
       sub_total:100,
       order_on:"01/01/2024"
     },
@@ -102,8 +107,9 @@ const OrderManagement = () => {
       erp_order_id: "02",
       sub_total:150,
       order_on:"02/01/2024",
+      status:'Delivered',
 
-      action: 89,
+      order_id: "ord_89",
     },
     {
       key: "3",
@@ -113,7 +119,9 @@ const OrderManagement = () => {
       erp_order_id: "02211",
 sub_total:300,
       order_on:"10/01/2024",
-      action: 70,
+      status:'In transis',
+
+      order_id: "ord_70",
     },
     {
       key: "4",
@@ -122,9 +130,11 @@ sub_total:300,
       status: "In Active",
       erp_order_id: "02211",
       sub_total:500,
+      status:'Not Dispathed',
+
       order_on:"20/01/2024",
 
-      action: 89,
+      order_id: "ord_89",
     },
   ];
   const handleToggle = (record, checked) => {
@@ -183,7 +193,7 @@ sub_total:300,
           ]}
         >
           <Descriptions column={1} bordered>
-            <Descriptions.Item label="Order ID">{selectedRecord.action}</Descriptions.Item>
+            <Descriptions.Item label="Order ID">{selectedRecord.order_id}</Descriptions.Item>
             <Descriptions.Item label="Sub Client">
               {selectedRecord.contractname}
             </Descriptions.Item>
@@ -196,7 +206,7 @@ sub_total:300,
             <Descriptions.Item label="Sub Total">
               {selectedRecord.sub_total}
             </Descriptions.Item>
-            <Descriptions.Item label="Order On">
+            <Descriptions.Item label="Ordered On">
               {selectedRecord.order_on}
             </Descriptions.Item>
             <Descriptions.Item label="Status">
